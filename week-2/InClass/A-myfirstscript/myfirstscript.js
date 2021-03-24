@@ -16,3 +16,4 @@ function sayHi() {
     console.log("sayHi is working!");
 }
 
+alert("Hey")
