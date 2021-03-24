@@ -4,8 +4,8 @@ One can buy three different coffees.
 Complete the methods "insertMoney" and "getCoffee" to match the expected result.
 
 insertMoney takes an amount in parameter to add money in the coffee machine.
-getCoffee takes a coffee type in parameter and dispends the selected coffee
-only if the inserted amount is greater or equal than the price of the coffee!
+getCoffee takes a coffee type in parameter and dispenses the selected coffee
+only if the inserted amount is greater or equal to the price of the coffee!
 */
 
 let coffeeMachine = {
@@ -16,8 +16,34 @@ let coffeeMachine = {
       flatWhite: 3.0,
     },
     insertedAmount: 0,
-    insertMoney: function (amount) {},
-    getCoffee: function (coffee) {},
+    insertMoney: function (amount) {
+      this.insertedAmount = amount;
+      // this.insertedAmount += amount; --- will add more money instead of deleting previous value
+    },
+    getCoffee: function (coffee) {
+      // for (let key in this.prices) {
+      //   if (key === coffee) {
+      //     return coffee;
+      //   }
+      //   if (this.prices[key] <= this.insertedAmount) {
+      //     console.log(`Please take your ${coffee}`);
+      //   } else {
+      //     console.log(`Sorry you don't have enough money for a ${coffee}`);
+      //   }
+      // }
+      return this.insertedAmount >= this.prices[coffee] ? 
+          `Please take your ${coffee}` :
+          `Sorry you don't have enough money for a ${coffee}`
+
+      
+    
+      
+      // for (let key in this.prices) {
+      //   if (this.prices[key] > 2) {
+      //   console.log(`${key}aa - ${this.prices[key]}bb`);
+      //   }
+      // }
+    },
   };
   
   /*

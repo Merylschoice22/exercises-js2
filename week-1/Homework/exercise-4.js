@@ -54,17 +54,32 @@ let restaurant1 = {
   WRITE YOUR CODE BELOW
   */
   
+/* 1) Define a method findAvailableRestaurants which takes a number of people in parameter and returns all the restaurant names which have the required number of seats available at the moment. */
+
   let restaurantFinderApplication = {
     applicationName: "Restaurant Finder",
     applicationVersion: "1.0",
     restaurants: restaurants,
     findAvailableRestaurants: function (numberOfPeople) {
+      // let availableRestaurants = restaurants.map(restaurant => (restaurant.totalSeats - restaurant.numberOfCustomers) >= numberOfPeople);
+      // console.log(availableRestaurants)
+      
       // Complete here
+      return this.restaurants.filter(r => (r.totalSeats - r.numberOfCustomers) >= numberOfPeople).map(r => r.name)
+
     },
     findRestaurantServingDish: function (dishName) {
+      // let restaurantsWithDish = this.restaurants.filter (r => r.menu.includes(dishName));
+      // let restaurantName = restaurantsWithDish.map(r => r.name);
+      // return restaurantName;
       // Complete here
+
+      return this.restaurants.filter(r =>r.menu.includes(dishName)).map(r => r.name);
     },
     countNumberOfRestaurantsInArea: function (area) {
+      let restaurantsInArea = this.restaurants.filter(r => r.address.area === area);
+      return restaurantsInArea.length;
+
       // Complete here
     },
   };
