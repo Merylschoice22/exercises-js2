@@ -24,12 +24,25 @@ DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
 
+//1) Define an array containing the 3 persons defined below.
+let persons = [person1, person2, person3]; // Complete here
 
-let persons = // Complete here
+//2) Return an array of the person names (hint: use map).
+/*
+function namePeople(person){
+    return person.name;
+}; 
+let personNames = persons.map(namePeople); 
+*/
 
-let personNames = // Complete here
+let personNames = persons.map(person => person.name)
+// Complete here
 
-let personsYoungerThan28YearsOld = // Complete here
+//3) Filter the persons to return an array with the person younger than 28 years old (hint: use filter).
+
+let personsYoungerThan28YearsOld = persons.filter(person => person.age < 28);
+
+// Complete here
 
 
 /*

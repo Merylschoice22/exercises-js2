@@ -39,18 +39,48 @@ DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
 
+//1) Filter the travelDestinations array to return all destination names reachable within 500 kms.
+// function within500Kms(destination) {
+//     let nearbyDestination = destination.distanceKms < 500;
+//     if (nearbyDestination) {
+//         console.log(destination.destinationName);
+//     };
+// };
 
-let destinationNamesWithin500Kms = // Complete here
+// let destinationNamesWithin500Kms = travelDestinations.filter(within500Kms);// Complete here
 
-let destinationNameReachableByFerry = // Complete here
+let destinationNamesWithin500Kms = travelDestinations.filter(destination => destination.distanceKms < 500).map(destination => destination.destinationName);
 
-let destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
+//2) Find a destination name reachable by ferry.
 
+// function getReachableByFerry(destination) {
+//     let byFerry = destination.transportations.includes('ferry');
+//     if (byFerry) {
+//         console.log(destination.destinationName);
+//     }
+// }
+
+// let destinationNameReachableByFerry = getReachableByFerry(travelDestinations);
+let destinationNameReachableByFerry = travelDestinations.filter(destination => {
+    return destination.transportations.includes('ferry');
+}).map(destination => destination.destinationName);
+
+// Complete here
+
+
+//3) Print in the console all the destination names more than 300 kms far away and reachable by train.
+// let destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
+
+let destinationNamesMoreThan300KmsAwayByTrain = travelDestinations.filter(destination => {
+    return destination.distanceKms > 300 && destination.transportations.includes("train")
+    }).map(destination => destination.destinationName);
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
 console.log(`Question 1) Expected result: Edinburgh,Dublin, actual result: ${destinationNamesWithin500Kms}`);
+
 console.log(`Question 2) Expected result: Dublin, actual result: ${destinationNameReachableByFerry}`);
+
 console.log(`Question 3) Expected result: London,Paris, actual result:  ${destinationNamesMoreThan300KmsAwayByTrain}`);
