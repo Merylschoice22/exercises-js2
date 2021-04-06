@@ -13,8 +13,19 @@
  *      .....
  * </div>
  */
+
+
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
+  // debugger;
+  arrayOfPeople.forEach(people => {
+    const nameH1 = document.createElement('h1');
+    nameH1.innerText = people.name;
+    content.appendChild(nameH1);
+    const jobH2 = document.createElement('h2');
+    jobH2.innerText = people.job;
+    content.appendChild(jobH2)
+  })
 }
 
 /**
@@ -25,6 +36,15 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
+  let content = document.querySelector('#content');
+  const uList = document.createElement('ul');
+  
+  shopping.forEach(item => {
+    const ulItem = document.createElement('li');
+    ulItem.innerText = item;
+    uList.appendChild(ulItem);
+  })
+  content.appendChild(uList)
   //Write your code in here
 }
 
@@ -59,7 +79,32 @@ function exerciseTwo(shopping) {
 **/
 function exerciseThree(books) {
   //Write your code in here
+  const content = document.querySelector('#content');
+  books[0].img = 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442460745l/840._SY475_.jpg';
+  books[1].img = 'https://brianchristian.org/images/The-Most-Human-Human-Paperback-Front-Cover.jpg';
+  books[2].img = 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1401432508l/4099.jpg';
+  books.forEach(b => {
+    const paragraph = document.createElement('p');
+    paragraph.innerText = b.title + ' - ' + b.author;
+    paragraph.style.fontWeight = '500';
+    content.appendChild(paragraph)
+    const ul = document.createElement('ul');
+    const liAuthor = document.createElement('li');
+    liAuthor.innerText = b.author;
+    const liAlreadyRead = document.createElement('li');
+    liAlreadyRead.innerText = b.alreadyRead;
+    const imgBookCover = document.createElement('img');
+    imgBookCover.alt = 'Book Cover Image';
+    imgBookCover.src = books.img;
+    b.alreadyRead === true ? paragraph.style.backgroundColor = 'green' : paragraph.style.backgroundColor = 'red';
+    ul.appendChild(liAuthor)
+    ul.appendChild(liAlreadyRead)
+    ul.appendChild(imgBookCover)
+    paragraph.appendChild(ul)
+  })
 }
+
+// .setAttribute ('src', books.img)
 
 //
 //
