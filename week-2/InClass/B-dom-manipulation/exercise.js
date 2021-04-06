@@ -69,7 +69,7 @@ Write JavaScript below that changes the background colour of the page when the '
 // document.querySelector('#bgrChangeBtn').addEventListener("click", changeColor)
 
 // function changeColor() {
-//     document.body.style.backgroundColor = 'orange'
+    // document.body.style.backgroundColor = 'orange'
 // }
 
 /*
@@ -141,12 +141,12 @@ Task 7
 
 Create an array of 5 different colors.
 Using the same function in Task 3, every time the 'Change colour' button is clicked, the background color will be changed with the next color in the array.
-The next color when you are in the last color of the array will be the first color again.
+The next color when you are in the last color of the array will be the first color again. PROMPT
 */
 
-const differentColors = ["red", "orange", "green", "black", "purple"]
+const differentColors = ["green", "black", "purple", "red", "orange"]
 
-document.querySelector('#bgrChangeBtn').addEventListener("click", changeColor)
+document.querySelector('#bgrChangeBtn').addEventListener("click", changeColorPushShift)
 
 function changeColor() {
     const currentColor = document.body.style.backgroundColor
@@ -154,4 +154,20 @@ function changeColor() {
     const nextColor = differentColors[indexCurrent + 1] || differentColors[0]
     document.body.style.backgroundColor = nextColor
 }
+
+
+
+
+
+
+function changeColorPushShift() {
+    const color = differentColors[0];
+    document.body.style.backgroundColor = color;
+    differentColors.push(differentColors[0]);
+    console.log('Moved to the end ' + differentColors);
+    differentColors.shift(differentColors[0]);
+    console.log('Deleted from the beginning ' + differentColors);
+}
+
+
 
