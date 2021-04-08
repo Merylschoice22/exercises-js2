@@ -146,7 +146,7 @@ The next color when you are in the last color of the array will be the first col
 
 const differentColors = ["green", "black", "purple", "red", "orange"]
 
-document.querySelector('#bgrChangeBtn').addEventListener("click", changeColorPushShift)
+document.querySelector('#bgrChangeBtn').addEventListener("click", changeColorLoop)
 
 function changeColor() {
     const currentColor = document.body.style.backgroundColor
@@ -154,9 +154,6 @@ function changeColor() {
     const nextColor = differentColors[indexCurrent + 1] || differentColors[0]
     document.body.style.backgroundColor = nextColor
 }
-
-
-
 
 
 
@@ -169,5 +166,10 @@ function changeColorPushShift() {
     console.log('Deleted from the beginning ' + differentColors);
 }
 
+i = 0;
+function changeColorLoop() {
+    document.body.style.backgroundColor = differentColors[i];
+    i >= differentColors.length - 1 ? i=0 : i++;
+}
 
 
