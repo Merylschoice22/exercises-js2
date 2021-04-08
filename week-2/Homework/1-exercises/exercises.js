@@ -87,15 +87,20 @@ function exerciseThree(books) {
     const paragraph = document.createElement('p');
     paragraph.innerText = b.title + ' - ' + b.author;
     paragraph.style.fontWeight = '500';
+    paragraph.style.padding = '15px';
     content.appendChild(paragraph)
     const ul = document.createElement('ul');
     const liAuthor = document.createElement('li');
     liAuthor.innerText = b.author;
     const liAlreadyRead = document.createElement('li');
-    liAlreadyRead.innerText = b.alreadyRead;
+    liAlreadyRead.innerText = `Already read: ${b.alreadyRead}`;
     const imgBookCover = document.createElement('img');
     imgBookCover.alt = 'Book Cover Image';
-    imgBookCover.src = books.img;
+    // imgBookCover.src = b.img;
+    imgBookCover.setAttribute('src', b.img)
+    // imgBookCover.style.width = '150px';
+    imgBookCover.setAttribute('width', '150px')
+
     b.alreadyRead === true ? paragraph.style.backgroundColor = 'green' : paragraph.style.backgroundColor = 'red';
     ul.appendChild(liAuthor)
     ul.appendChild(liAlreadyRead)
