@@ -4,7 +4,7 @@ Task 1
 Write JavaScript below that logs:
     1. all the "p" element nodes of the document,
     --> should log a list of nodes with a length of 6 */
-const pElements = document.querySelectorAll("p")
+const pElements = document.querySelectorAll("p");
 // console.log(pElements)
 // pElements.forEach((p) => p.style.fontSize = '50px')
 
@@ -13,7 +13,7 @@ const pElements = document.querySelectorAll("p")
     --> should log the ".site-header" node
 */
 
-const firstDiv = document.querySelector("div")
+const firstDiv = document.querySelector("div");
 // console.log(firstDiv)
 
 /*
@@ -21,7 +21,7 @@ const firstDiv = document.querySelector("div")
     --> should log the "#jumbotron-text" node
 */
 
-const jumbotronText = document.querySelector("#jumbotron-text")
+const jumbotronText = document.querySelector("#jumbotron-text");
 // console.log(jumbotronText)
 
 /*
@@ -29,12 +29,8 @@ const jumbotronText = document.querySelector("#jumbotron-text")
     --> should log a list of nodes with a length of 3
 */
 
-const allPElements = document.querySelectorAll(".primary-content p")
-console.log(allPElements)
-
-
-
-
+const allPElements = document.querySelectorAll(".primary-content p");
+console.log(allPElements);
 
 /*
 Task 2
@@ -42,8 +38,6 @@ Task 2
 
 When a user clicks the 'ALERT' button, an alert box should pop up with the text "Thanks for visiting Bikes for Refugees!"
 */
-
-
 
 /* document.querySelector("#alertBtn").addEventListener('click', thanksForVisiting);
 
@@ -57,7 +51,11 @@ function sayThanks(){
     alert( "Thanks for visiting Bikes for Refugees!")
 } */
 
-document.querySelector("#alertBtn").addEventListener('click', () => alert('Thanks for visiting Bikes for Regugees!'))
+document
+  .querySelector("#alertBtn")
+  .addEventListener("click", () =>
+    alert("Thanks for visiting Bikes for Regugees!")
+  );
 
 /*
 Task 3
@@ -69,7 +67,7 @@ Write JavaScript below that changes the background colour of the page when the '
 // document.querySelector('#bgrChangeBtn').addEventListener("click", changeColor)
 
 // function changeColor() {
-    // document.body.style.backgroundColor = 'orange'
+// document.body.style.backgroundColor = 'orange'
 // }
 
 /*
@@ -79,13 +77,14 @@ Task 4
 When a user clicks the ‘Add some text’ button, a new paragraph should be added inside the section that says “LEARN MORE”
 */
 
-document.querySelector('#addTextBtn').addEventListener('click', addParagraph);
+document.querySelector("#addTextBtn").addEventListener("click", addParagraph);
 
 function addParagraph() {
-    const learnMoreSection = document.querySelector('#mainArticles');
-    const paragraph = document.createElement('p');
-    paragraph.innerText = 'This is the additional paragraph that will be added into the document.';
-    learnMoreSection.appendChild(paragraph);
+  const learnMoreSection = document.querySelector("#mainArticles");
+  const paragraph = document.createElement("p");
+  paragraph.innerText =
+    "This is the additional paragraph that will be added into the document.";
+  learnMoreSection.appendChild(paragraph);
 }
 
 // innerText = textContent
@@ -97,12 +96,10 @@ Task 5
 When the 'Larger links!' button is clicked, the text of all links on the page should increase.
 */
 
-
-document.querySelector('#largerLinksBtn').addEventListener('click', () => {
-    const allLinks = document.querySelectorAll('a');
-    allLinks.forEach(a => a.style.fontSize = '30px');
-} )
-
+document.querySelector("#largerLinksBtn").addEventListener("click", () => {
+  const allLinks = document.querySelectorAll("a");
+  allLinks.forEach((a) => (a.style.fontSize = "30px"));
+});
 
 /* ALI */
 /* let largerLinksBtn = document.querySelector("#largerLinksBtn")
@@ -114,7 +111,6 @@ function largerText(){
     linkElements.forEach((a)=> a.style.fontSize = "30px")
 } */
 
-
 /*
 Task 6
 ======
@@ -124,15 +120,15 @@ When the 'Add' button is clicked, get the text inside the input field and create
 Also clear the text inside the input field
 */
 
-document.querySelector('#addArticleBtn').addEventListener('click', addText);
+document.querySelector("#addArticleBtn").addEventListener("click", addText);
 
 function addText() {
-    const inputField = document.querySelector('.form-control.addArticle')
-    const learnMoreSection = document.querySelector('#mainArticles');
-    const paragraph = document.createElement('p');
-    paragraph.textContent = inputField.value;
-    learnMoreSection.appendChild(paragraph);
-    inputField.value = ''
+  const inputField = document.querySelector(".form-control.addArticle");
+  const learnMoreSection = document.querySelector("#mainArticles");
+  const paragraph = document.createElement("p");
+  paragraph.textContent = inputField.value;
+  learnMoreSection.appendChild(paragraph);
+  inputField.value = "";
 }
 
 /*
@@ -144,32 +140,30 @@ Using the same function in Task 3, every time the 'Change colour' button is clic
 The next color when you are in the last color of the array will be the first color again. PROMPT
 */
 
-const differentColors = ["green", "black", "purple", "red", "orange"]
+const differentColors = ["green", "black", "purple", "red", "orange"];
 
-document.querySelector('#bgrChangeBtn').addEventListener("click", changeColorLoop)
+document
+  .querySelector("#bgrChangeBtn")
+  .addEventListener("click", changeColorPushShift);
 
 function changeColor() {
-    const currentColor = document.body.style.backgroundColor
-    const indexCurrent = differentColors.findIndex(c => c === currentColor)
-    const nextColor = differentColors[indexCurrent + 1] || differentColors[0]
-    document.body.style.backgroundColor = nextColor
+  const currentColor = document.body.style.backgroundColor;
+  const indexCurrent = differentColors.findIndex((c) => c === currentColor);
+  const nextColor = differentColors[indexCurrent + 1] || differentColors[0];
+  document.body.style.backgroundColor = nextColor;
 }
 
-
-
 function changeColorPushShift() {
-    const color = differentColors[0];
-    document.body.style.backgroundColor = color;
-    differentColors.push(differentColors[0]);
-    console.log('Moved to the end ' + differentColors);
-    differentColors.shift(differentColors[0]);
-    console.log('Deleted from the beginning ' + differentColors);
+  const color = differentColors[0];
+  document.body.style.backgroundColor = color;
+  differentColors.push(differentColors[0]);
+  console.log("Moved to the end " + differentColors);
+  differentColors.shift(differentColors[0]);
+  console.log("Deleted from the beginning " + differentColors);
 }
 
 i = 0;
 function changeColorLoop() {
-    document.body.style.backgroundColor = differentColors[i];
-    i >= differentColors.length - 1 ? i=0 : i++;
+  document.body.style.backgroundColor = differentColors[i];
+  i >= differentColors.length - 1 ? (i = 0) : i++;
 }
-
-

@@ -88,11 +88,25 @@ When the button is clicked
 TIP: Use the functions you created on tasks 1-3 */
 // create addMovies function
 
-let form = document.createElement("form");
-let input1 = document.createElement("input");
-let input2 = document.createElement("input");
-let input3 = document.createElement("input");
-let input4 = document.createElement("input");
-const inputs = document.querySelectorAll("input");
-inputs.forEach((input) => input.setAttribute("type", "text"));
-movieSection.appendChild(form);
+const createForm = () => {
+  let form = document.createElement("form");
+  let title = document.createElement("input");
+  let director = document.createElement("input");
+  let type = document.createElement("input");
+  let haveWatched = document.createElement("input");
+  title.setAttribute("type", "text");
+  director.setAttribute("type", "text");
+  type.setAttribute("type", "text");
+  haveWatched.setAttribute("type", "text");
+  movieSection.appendChild(form);
+  form.appendChild(title);
+  form.appendChild(director);
+  form.appendChild(type);
+  form.appendChild(haveWatched);
+  let saveBtn = document.createElement("button");
+  saveBtn.innerHTML = "type = button";
+  saveBtn.innerText = "Save";
+  movieSection.appendChild(saveBtn);
+};
+
+createForm();
