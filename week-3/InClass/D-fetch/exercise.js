@@ -20,17 +20,23 @@ document.body.appendChild(h2);
 document.body.appendChild(h3);
 
 /*** VARIABLES ***/
-let lat = document.getElementById("lat").value.trim();
-let lon = document.getElementById("lon").value.trim();
-
+let lat = "";
+let lon = "";
+console.log("lat" + lat, "lon" + lon);
 /*** INPUT FETCH ***/
 document.querySelector("form").addEventListener("submit", (getTemperature) => {
   getTemperature.preventDefault();
+  lat = document.getElementById("lat").value;
+  lon = document.getElementById("lon").value;
+  console.log("lat" + lat, "lon" + lon);
+
+  if (lat == "" || lon == "") {
+    alert("Enter valid coordinates!");
+  }
   fetch(`https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${lon}`)
     .then((response) => response.json())
     .then((temperatures) => {
-      console.log(temperatures);
-      console.log(lat, lon);
+      console.log("Coordinates: " + lat, lon);
       h3.innerText = `The current temperature there is ${temperatures.main.temp} degrees Celsius`;
       h2.innerText = `You have input coordinates for ${temperatures.name.toUpperCase()}`;
       document.body.appendChild(h2);
@@ -39,16 +45,8 @@ document.querySelector("form").addEventListener("submit", (getTemperature) => {
     .catch((error) => console.log(`Error: ${error}`));
 });
 
-/*** FORM VALIDATION DOESN'T WORK***/
+/*** FORM VALIDATION***/
 
-const validateForm = () => {
-  if (isNaN(parseFloat(lat))) {
-    // let warning = document.createElement("h1");
-    // let label = document.querySelector("label");
-    // label.appendChild(warning);
-    // warning.innerText = "Enter valid coordinates";
-    alert("Enter valid coordinates!");
-    return;
-  }
-};
-document.getElementById("getBtn").addEventListener("click", validateForm);
+// const validateForm = (lat, lon) => {
+// };
+// document.getElementById("getBtn").addEventListener("click", validateForm);
