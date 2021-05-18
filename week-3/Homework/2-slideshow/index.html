@@ -11,12 +11,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div>
+    <div class="body">
       <h1>Barcelona Cultura</h1>
-      <img src="./img/img3.jpg" alt="" width="300px" />
+      <div id="img-container">
+        <img class="img" src="./img/img0.jpg" alt="" />
+      </div>
       <div class="button-wrapper">
+        <button id="autoBack">Auto Backward</button>
         <button id="backward">Backward</button>
+        <button id="stop">STOP</button>
         <button id="forward">Forward</button>
+        <button id="autoForward">Auto Forward</button>
       </div>
     </div>
     <script src="slideshow.js"></script>
