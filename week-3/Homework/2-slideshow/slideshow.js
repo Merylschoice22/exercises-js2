@@ -28,7 +28,7 @@ const showNext = (imgPool) => {
 };
 
 const showNextAuto = (imgPool) => {
-  go = setInterval(() => showNext(imgPool), 1000);
+  go = setInterval(() => showNext(imgPool), 5000);
   run = true;
 };
 
@@ -45,7 +45,7 @@ const showPrevious = (imgPool) => {
 };
 
 const showPreviousAuto = (imgPool) => {
-  go = setInterval(() => showPrevious(imgPool), 1000);
+  go = setInterval(() => showPrevious(imgPool), 5000);
   run = true;
 };
 
